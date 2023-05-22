@@ -64,6 +64,12 @@ def parse_args(default=False):
         help="The column of the dataset containing a caption or a list of captions.",
     )
     parser.add_argument(
+        "--controlnet_input_image",
+        type=str,
+        help="The Path of input image of controlnet",
+        default="None"
+    )
+    parser.add_argument(
         "--max_train_samples",
         type=int,
         default=None,

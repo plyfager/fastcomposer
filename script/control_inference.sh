@@ -1,14 +1,16 @@
 CAPTION="a man <|image|> and a man <|image|> are reading book together"
 DEMO_NAME="newton_einstein"
+CONTROL_IMAGE=""
 
 CUDA_VISIBLE_DEVICES=0 accelerate launch \
     --mixed_precision=fp16 \
-    fastcomposer/inference.py \
+    fastcomposer/control_inference.py \
+    --controlnet_input_image ${CONTROL_IMAGE}
     --pretrained_model_name_or_path runwayml/stable-diffusion-v1-5 \
     --finetuned_model_path model/fastcomposer \
     --test_reference_folder data/${DEMO_NAME} \
     --test_caption "${CAPTION}" \
-    --output_dir outputs/wo_control/${DEMO_NAME} \
+    --output_dir outputs/w_control/${DEMO_NAME} \
     --mixed_precision fp16 \
     --image_encoder_type clip \
     --image_encoder_name_or_path openai/clip-vit-large-patch14 \
