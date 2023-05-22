@@ -1,7 +1,7 @@
 # Some part of this gradio demo code come from https://github.com/csyxwei/ELITE/blob/main/app_gradio.py
 # Apache-2.0 License
 
-from demo.pipeline import convert_model_to_pipeline
+from pipeline import convert_model_to_pipeline
 from fastcomposer.utils import parse_args
 from accelerate import Accelerator
 import numpy as np
