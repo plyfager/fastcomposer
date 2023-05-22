@@ -1,11 +1,11 @@
-CAPTION="a man <|image|> and a man <|image|> are reading book together"
+CAPTION="a man <|image|> and a man <|image|> are playing basketball"
 DEMO_NAME="newton_einstein"
-CONTROL_IMAGE=""
+CONTROL_IMAGE="/mnt/petrelfs/yangyifei/codes/fastcomposer/basketball-players-playing-intense-match-outdoor.jpg"
 
 CUDA_VISIBLE_DEVICES=0 accelerate launch \
     --mixed_precision=fp16 \
     fastcomposer/control_inference.py \
-    --controlnet_input_image ${CONTROL_IMAGE}
+    --controlnet_input_image ${CONTROL_IMAGE} \
     --pretrained_model_name_or_path runwayml/stable-diffusion-v1-5 \
     --finetuned_model_path model/fastcomposer \
     --test_reference_folder data/${DEMO_NAME} \

@@ -48,10 +48,8 @@ def main():
 
     # prepare controlnet pipe
     # urls = ["yoga1.jpeg", "yoga2.jpeg", "yoga3.jpeg", "yoga4.jpeg"]
-    urls = ["yoga2.jpeg"]
     imgs = [
-        load_image("https://huggingface.co/datasets/YiYiXu/controlnet-testing/resolve/main/" + url) 
-        for url in urls
+        load_image(args.controlnet_input_image) 
     ]
     model = OpenposeDetector.from_pretrained("lllyasviel/ControlNet")
     poses = [model(img) for img in imgs]
